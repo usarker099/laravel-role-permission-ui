@@ -4,28 +4,13 @@ namespace sarker\RolePermissionUi\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\File;
 
 class InstallCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'role-permission-ui:install';
-
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Install the role and permission UI components for Bootstrap, Tailwind, or Inertia.';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle(): int
     {
         $choice = $this->choice(
@@ -50,8 +35,18 @@ class InstallCommand extends Command
             $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-inertia-react', '--force' => true]);
         }
 
+        $this->writeConfig($choice);
+
         $this->info("\nInstallation complete. Your UI components are ready!");
 
         return Command::SUCCESS;
+    }
+
+    private function writeConfig(string $ui): void
+    {
+        $configPath = config_path('role-permission-ui.php');
+        $content = File::get($configPath);
+        $content = preg_replace("/'ui' => '.*?'/", "'ui' => '{$ui}'", $content);
+        File::put($configPath, $content);
     }
 }
