@@ -24,8 +24,20 @@ class InstallCommand extends Command
         $this->info("You chose to install the {$choice} UI components.");
 
         // Publish all views and assets with their new consolidated tags
-        $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views', '--force' => true]);
-        $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets', '--force' => true]);
+        if ($choice === 'tailwind') {
+            $this->comment('Publishing Tailwind UI assets...');
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-tailwind', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-tailwind', '--force' => true]);
+        } elseif ($choice === 'bootstrap') {
+            $this->comment('Publishing Bootstrap UI assets...');
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-bootstrap', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-bootstrap', '--force' => true]);
+        } elseif ($choice === 'inertia-react') {
+            $this->comment('Publishing Inertia+React UI assets...');
+    
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-inertia', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-inertia', '--force' => true]);
+        }
 
         // Write the choice to the config file
         $this->writeConfig($choice);
