@@ -24,9 +24,9 @@ class InstallCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return int|null
+     * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $choice = $this->choice(
             'Which UI framework would you like to install?',
@@ -36,25 +36,18 @@ class InstallCommand extends Command
 
         $this->info("You chose to install the {$choice} UI components.");
 
-        // Here, we would implement the actual file copying and configuration
-        // based on the user's choice. For this example, we'll just output
-        // a message about what would be done.
-
         if ($choice === 'tailwind') {
             $this->comment('Publishing Tailwind UI assets...');
-            $this->line('- Controllers: src/Http/Controllers/Tailwind/*.php');
-            $this->line('- Views: resources/views/tailwind/*.blade.php');
-            $this->line('- Routes: routes/web.php (Tailwind group)');
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-tailwind', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-tailwind', '--force' => true]);
         } elseif ($choice === 'bootstrap') {
             $this->comment('Publishing Bootstrap UI assets...');
-            $this->line('- Controllers: src/Http/Controllers/Bootstrap/*.php');
-            $this->line('- Views: resources/views/bootstrap/*.blade.php');
-            $this->line('- Routes: routes/web.php (Bootstrap group)');
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-bootstrap', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-bootstrap', '--force' => true]);
         } elseif ($choice === 'inertia-react') {
             $this->comment('Publishing Inertia+React UI assets...');
-            $this->line('- Controllers: src/Http/Controllers/Inertia/*.php');
-            $this->line('- Views: resources/js/Pages/*');
-            $this->line('- Routes: routes/web.php (Inertia group)');
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-views-inertia-react', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'role-permission-ui-assets-inertia-react', '--force' => true]);
         }
 
         $this->info("\nInstallation complete. Your UI components are ready!");
