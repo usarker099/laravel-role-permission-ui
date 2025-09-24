@@ -1,0 +1,24 @@
+{
+    "name": "Sarker/laravel-role-permission-ui",
+    "description": "Minimal Role & Permission UI for Laravel (built on Spatie Permission).",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+      "psr-4": {
+        "Sarker\\RolePermissionUi\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "Sarker\\RolePermissionUi\\RolePermissionUiServiceProvider"
+        ]
+      }
+    },
+    "require": {
+      "php": "^7.4|^8.0",
+      "laravel/framework": "^10.0|^11.0",
+      "spatie/laravel-permission": "^6.0"
+    }
+  }
+  
