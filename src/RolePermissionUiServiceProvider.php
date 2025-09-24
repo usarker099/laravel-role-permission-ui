@@ -21,7 +21,7 @@ class RolePermissionUiServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Load the routes for the package.
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
 
         // Load the views from the package's resources directory.
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'role-permission-ui');
