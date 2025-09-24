@@ -16,7 +16,6 @@
       }
     },
     "require": {
-      "sarker/laravel-role-permission-ui": "dev-main",
       "php": "^7.4|^8.0",
       "laravel/framework": "^10.0|^11.0",
       "spatie/laravel-permission": "^6.0"
