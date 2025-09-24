@@ -31,6 +31,12 @@ class RolePermissionUiServiceProvider extends ServiceProvider
         ], 'role-permission-ui-assets');
 
         if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/role-permission-ui.php' => config_path('role-permission-ui.php'),
+            ], 'role-permission-ui-config');
+        }
+        
+        if ($this->app->runningInConsole()) {
             $this->commands([
                 InstallCommand::class,
             ]);

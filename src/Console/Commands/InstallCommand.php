@@ -13,6 +13,8 @@ class InstallCommand extends Command
 
     public function handle(): int
     {
+        $this->call('vendor:publish', ['--tag' => 'role-permission-ui-config', '--force' => true]);
+        
         $choice = $this->choice(
             'Which UI framework would you like to install?',
             ['tailwind', 'bootstrap', 'inertia-react'],
