@@ -14,6 +14,9 @@ class InstallCommand extends Command
     public function handle(): int
     {
         $this->call('vendor:publish', ['--tag' => 'role-permission-ui-config', '--force' => true]);
+        $this->addRoute();
+
+
 
         $choice = $this->choice(
             'Which UI framework would you like to install?',
@@ -54,4 +57,24 @@ class InstallCommand extends Command
         $content = preg_replace("/'ui' => '.*?'/", "'ui' => '{$ui}'", $content);
         File::put($configPath, $content);
     }
+
+    protected function addRoute(): void
+{
+    $routeFilePath = base_path('routes/web.php');
+
+    // The line to add
+    $routeLine = "Route::group(['middleware' => ['web']], function () { require base_path('routes/role-permission-ui.php'); });";
+
+    // Read the current content of the routes file
+    $contents = File::get($routeFilePath);
+
+    // Check if the route is already there to prevent duplicates
+    if (! str_contains($contents, 'role-permission-ui.php')) {
+        File::append($routeFilePath, "\n\n".$routeLine);
+        $this->info('Routes added to routes/web.php.');
+    } else {
+        $this->comment('Routes already exist in routes/web.php.');
+    }
+}
+
 }
