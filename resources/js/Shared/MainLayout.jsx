@@ -30,7 +30,7 @@ const MainLayout = ({ children }) => {
 
             {/* Footer */}
             <footer className="bg-gray-800 text-white text-center py-4 mt-8">
-                <p>&copy; 2025 Your Package. All rights reserved.</p>
+                <p>&copy; 2025 Role-Permission UI Package. All rights reserved.</p>
             </footer>
         </div>
     );
