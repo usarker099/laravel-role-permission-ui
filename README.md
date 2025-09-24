@@ -24,14 +24,53 @@ It’s got everything you need already built in — and you get to **pick your f
 
 ## ⚡ Installation
 
-### Step 1 — Require the package:
-```
-composer require sarker/laravel-role-permission-ui
-```
-### Step 2 — Run the installer:
-```
-php artisan role-permission-ui:install
-```
+### Step 1: Require the package
+Use Composer to add the package to your project.
+```composer require sarker/laravel-role-permission-ui```
+
+### Step 2: Run the installer
+After the package is installed, run the Artisan command to publish the necessary files for your chosen UI stack.
+
+```php artisan role-permission-ui:install```
+
+You will be prompted to select your preferred UI framework. The installer will then automatically publish the correct controllers, views, and routes.
+
+---
+
+## ⚙️ Dependencies & Setup
+
+Before installing this package, you'll need to set up a few core dependencies in your Laravel project (You might already have done this).
+
+### Step 1: Install Laravel
+If you haven't already, make sure you have a fresh Laravel project set up.
+
+```composer create-project laravel/laravel my-project-name```
+
+### Step 2: Install Spatie Laravel Permission
+This package is built on top of the powerful Spatie Laravel Permission package. You must install it first.
+
+```composer require spatie/laravel-permission```
+
+### Step 3: Configure Your Database
+Connect your database and run the migrations. This will create the necessary `roles` and `permissions` tables.
+
+```php artisan migrate```
+
+---
+
+## 🎨 Project Dependencies by UI
+
+Depending on the UI you choose during installation, you might need to handle a few front-end dependencies.
+
+-   **Bootstrap**: The package's views use a standard CDN, so you don't need to install anything extra. Everything is handled out-of-the-box.
+
+-   **Tailwind**: For modern Laravel versions (v9+), Tailwind CSS is included by default, so no extra steps are required. If you're on an older version or need to install it explicitly, you can do so with this command:
+
+    "npm install -D tailwindcss postcss autoprefixer"
+
+-   **Inertia + React**: The Inertia views also leverage Tailwind CSS, so the same rules as above apply.
+
+---
 
 ## 🚀 Usage
 
