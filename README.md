@@ -26,12 +26,16 @@ It’s got everything you need already built in — and you get to **pick your f
 
 ### Step 1: Require the package
 Use Composer to add the package to your project.
-```composer require sarker/laravel-role-permission-ui```
+```
+composer require sarker/laravel-role-permission-ui
+```
 
 ### Step 2: Run the installer
 After the package is installed, run the Artisan command to publish the necessary files for your chosen UI stack.
 
-```php artisan role-permission-ui:install```
+```
+php artisan role-permission-ui:install
+```
 
 You will be prompted to select your preferred UI framework. The installer will then automatically publish the correct controllers, views, and routes.
 
@@ -44,17 +48,23 @@ Before installing this package, you'll need to set up a few core dependencies in
 ### Step 1: Install Laravel
 If you haven't already, make sure you have a fresh Laravel project set up.
 
-```composer create-project laravel/laravel my-project-name```
+```
+composer create-project laravel/laravel my-project-name
+```
 
 ### Step 2: Install Spatie Laravel Permission
 This package is built on top of the powerful Spatie Laravel Permission package. You must install it first.
 
-```composer require spatie/laravel-permission```
+```
+composer require spatie/laravel-permission
+```
 
 ### Step 3: Configure Your Database
 Connect your database and run the migrations. This will create the necessary `roles` and `permissions` tables.
 
-```php artisan migrate```
+```
+php artisan migrate
+```
 
 ---
 
