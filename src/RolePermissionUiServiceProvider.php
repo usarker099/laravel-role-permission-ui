@@ -3,7 +3,7 @@
 namespace sarker\RolePermissionUi;
 
 use Illuminate\Support\ServiceProvider;
-use YourVendor\RolePermissionUi\Console\Commands\InstallCommand;
+use sarker\RolePermissionUi\Console\Commands\InstallCommand;
 
 class RolePermissionUiServiceProvider extends ServiceProvider
 {

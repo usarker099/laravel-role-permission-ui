@@ -1,6 +1,6 @@
 <?php
 
-namespace Sarker\RolePermissionUi\Console\Commands;
+namespace sarker\RolePermissionUi\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

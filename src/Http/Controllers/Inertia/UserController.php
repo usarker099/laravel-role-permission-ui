@@ -1,6 +1,6 @@
 <?php
 
-namespace YourVendor\RolePermissionUi\Http\Controllers\Inertia;
+namespace sarker\RolePermissionUi\Http\Controllers\Inertia;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

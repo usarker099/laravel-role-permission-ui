@@ -1,6 +1,6 @@
 <?php
 
-namespace Sarker\RolePermissionUi\Http\Controllers\Tailwind;
+namespace sarker\RolePermissionUi\Http\Controllers\Tailwind;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

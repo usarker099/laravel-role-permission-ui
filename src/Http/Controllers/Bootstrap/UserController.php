@@ -1,6 +1,6 @@
 <?php
 
-namespace YourVendor\RolePermissionUi\Http\Controllers\Bootstrap;
+namespace sarker\RolePermissionUi\Http\Controllers\Bootstrap;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
